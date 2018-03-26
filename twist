@@ -6,7 +6,7 @@
 function shadowsocksconfig(){
     SSLOCAL="[\"[::0]\",\"0.0.0.0\"]"
     PORT="443"
-    LOACL="127.0.0.1"
+    LOCAL="127.0.0.1"
     LOCALPORT="1080"
     PASSWORD=""
     METHOD="xchacha20-ietf-poly1305"
@@ -570,7 +570,7 @@ function sslibevconfigure(){
 {
     "server":${SSLOCAL},
     "server_port":${PORT},
-    "local_address":"${LOACL}",
+    "local_address":"${LOCAL}",
     "local_port":${LOCALPORT},
     "password":"${PASSWORD}",
     "method":"${METHOD}",
@@ -996,7 +996,7 @@ function servicesstatus(){
     echo -e "# [\033[32;1mss://\033[0m\033[34;1m$(echo -n "${METHOD}:${PASSWORD}@${PUBLICIP}:${PORT}?plugin=obfs-local;obfs-host=${OBFSHOST};obfs-uri=${OBFSURI};obfs=${OBFS}#Twist" | base64 -w 0)\033[0m]"
     echo -e "# [\033[32;1mServer IP:\033[0m \033[34;1m${PUBLICIP}\033[0m\c"
     [ ! "$IPV6ENABLE" = "false" ] && echo -e "(\033[34;1m${PUBLICIPv6}\033[0m)\c"
-    echo -e " \033[32;1mPassWord:\033[0m \033[34;1m${PASSWORD}\033[0m \033[32;1mEncryption:\033[0m \033[34;1m${METHOD}\033[0m \033[32;1mOBFS:\033[0m \033[34;1m${OBFS}\033[0m \033[32;1mOBFS-HOST:\033[0m \033[34;1m${OBFSHOST}\033[0m \033[32;1mOBFS-URI:\033[0m \033[34;1m${OBFSURI}\033[0m \033[32;1mLOCALHOST:\033[0m \033[34;1m${LOACL}:${LOCALPORT}\033[0m]"
+    echo -e " \033[32;1mPassWord:\033[0m \033[34;1m${PASSWORD}\033[0m \033[32;1mEncryption:\033[0m \033[34;1m${METHOD}\033[0m \033[32;1mOBFS:\033[0m \033[34;1m${OBFS}\033[0m \033[32;1mOBFS-HOST:\033[0m \033[34;1m${OBFSHOST}\033[0m \033[32;1mOBFS-URI:\033[0m \033[34;1m${OBFSURI}\033[0m \033[32;1mLOCALHOST:\033[0m \033[34;1m${LOCAL}:${LOCALPORT}\033[0m]"
     serverrestart "Installation"
 }
 
